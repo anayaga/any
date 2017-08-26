@@ -11,7 +11,7 @@ $("#modal_trigger").leanModal({
       mynumtel=$("#mynumtel").val();
 	  code=$("#mycode").val();
 
-    $.getJSON("get_infos.php?",{numtel: mynumtel,code:code  , ajax: 'true'},function(mydata){
+    $.getJSON("http://localhost/my_api/get_infos.php?",{numtel: mynumtel,code:code  , ajax: 'true'},function(mydata){
    
     if(mydata!="no_data"){
 
