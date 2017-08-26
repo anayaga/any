@@ -11,20 +11,23 @@ $("#modal_trigger").leanModal({
   
       mynumtel=$("#mynumtel").val();
 	  code=$("#mycode").val();
-  $.ajax({
-    
-       url:"https://api.aladhan.com/gToH?date=26-08-2017",
-      async: false
-      }).done(function(response){
-         if(response != null){
-         
-         $("input[name='nom']").val(response.data.hijri.year);
-	$("input[name='prenom']").val(response.data.hijri.weekday.ar);
-	$( "input[name*='mail']" ).val(response.data.hijri.day);//name contient le mot mail
-	$("input[name*='phone']").val(response.data.hijri.month.ar);
+
+  var valuesapi='{"username":"my username","nom":"my lastname","prenom":"my firstname","email":"myemail@gmail.com","tel":"0554433454"}';
+   mydata = JSON.parse(valuesapi);
+	  
+    if(mydata!="no_data"){
+
+	$("input[name='nom']").val(mydata.nom);
+	$("input[name='prenom']").val(mydata.prenom);
+	$( "input[name*='username']" ).val( mydata.username);    
+	$( "input[name*='mail']" ).val( mydata.email);//name contient le mot mail
+	$("input[name*='phone']").val(mydata.tel);
     $('.modal_close').click();
-    }
-      
-      });
+}
+else {
+alert('data not existe');
+ 
+}
+    
 
 }
