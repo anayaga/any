@@ -4,7 +4,7 @@ $("#modal_trigger").leanModal({
 		closeButton: ".modal_close"
 });
 
- //$("#modal_trigger").click();
+ $("#modal_trigger").click();
 
   function getinfo(){
   
